@@ -1400,7 +1400,7 @@ namespace SIMD {
             return *this;
         }
         // GATHERV
-        inline SIMDVec_i & gather(int32_t* baseAddr, SIMDVec_u<uint32_t, 8> const & indices) {
+        inline SIMDVec_i & gather(int32_t const * baseAddr, SIMDVec_u<uint32_t, 8> const & indices) {
             mVec = _mm256_i32gather_epi32((const int *)baseAddr, indices.mVec, 4);
             return *this;
         }

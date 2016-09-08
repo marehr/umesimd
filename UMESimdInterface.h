@@ -696,12 +696,12 @@ namespace SIMD
             mVecRef_RW.insert(mIndexRef, mVecRef_RW[mIndexRef] >> scalarRhs);
         }
 
-        UME_FORCE_INLINE operator SCALAR_TYPE() { return mVecRef_RW.extract(mIndexRef); }
+        UME_FORCE_INLINE operator SCALAR_TYPE() const { return mVecRef_RW.extract(mIndexRef); }
 
         // Comparison operators accept any type of scalar to allow mixing 
         // scalar types.
         template<typename T>
-        UME_FORCE_INLINE bool operator==(T const & rhs) { 
+        UME_FORCE_INLINE bool operator==(T const & rhs) const {
             return mVecRef_RW.extract(mIndexRef) == rhs;
         }
         UME_FORCE_INLINE bool operator== (IntermediateIndex const & x) {
@@ -2505,7 +2505,7 @@ namespace SIMD
         }
 
         // GATHERS
-        UME_FORCE_INLINE DERIVED_VEC_TYPE & gather (SCALAR_TYPE * baseAddr, SCALAR_UINT_TYPE* indices) {
+        UME_FORCE_INLINE DERIVED_VEC_TYPE & gather (SCALAR_TYPE const * baseAddr, SCALAR_UINT_TYPE* indices) {
             UME_EMULATION_WARNING();
             return SCALAR_EMULATION::gather<DERIVED_VEC_TYPE, SCALAR_TYPE, SCALAR_UINT_TYPE> (static_cast<DERIVED_VEC_TYPE &>(*this), baseAddr, indices);
         }
@@ -2517,7 +2517,7 @@ namespace SIMD
         }
 
         // GATHERV
-        UME_FORCE_INLINE DERIVED_VEC_TYPE & gather (SCALAR_TYPE * baseAddr, DERIVED_UINT_VEC_TYPE const & indices) {
+        UME_FORCE_INLINE DERIVED_VEC_TYPE & gather (SCALAR_TYPE const * baseAddr, DERIVED_UINT_VEC_TYPE const & indices) {
             UME_EMULATION_WARNING();
             return SCALAR_EMULATION::gather<DERIVED_VEC_TYPE, SCALAR_TYPE, DERIVED_UINT_VEC_TYPE> (static_cast<DERIVED_VEC_TYPE &>(*this), baseAddr, indices);
         }

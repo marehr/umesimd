@@ -188,7 +188,7 @@ namespace SCALAR_EMULATION
 
     // GATHERV
     template<typename VEC_TYPE, typename SCALAR_TYPE, typename UINT_VEC_TYPE>
-    UME_FORCE_INLINE VEC_TYPE & gather(VEC_TYPE & dst, SCALAR_TYPE* base, UINT_VEC_TYPE const & indices) {
+    UME_FORCE_INLINE VEC_TYPE & gather(VEC_TYPE & dst, SCALAR_TYPE const * base, UINT_VEC_TYPE const & indices) {
         for (uint32_t i = 0; i < VEC_TYPE::length(); i++) {
             dst.insert(i, base[indices[i]]);
         }

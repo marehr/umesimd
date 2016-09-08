@@ -1356,7 +1356,7 @@ namespace SIMD {
             return *this;
         }
         // GATHERV
-        inline SIMDVec_u & gather(uint32_t* baseAddr, SIMDVec_u const & indices) {
+        inline SIMDVec_u & gather(uint32_t const * baseAddr, SIMDVec_u const & indices) {
             mVec = _mm256_i32gather_epi32((const int *)baseAddr, indices.mVec, 4);
             return *this;
         }

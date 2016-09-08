@@ -1399,7 +1399,7 @@ namespace SIMD {
             return *this;
         }
         // GATHERV
-        inline SIMDVec_u & gather(uint64_t * baseAddr, SIMDVec_u const & indices) {
+        inline SIMDVec_u & gather(uint64_t const * baseAddr, SIMDVec_u const & indices) {
             mVec[0] = baseAddr[indices.mVec[0]];
             mVec[1] = baseAddr[indices.mVec[1]];
             return *this;

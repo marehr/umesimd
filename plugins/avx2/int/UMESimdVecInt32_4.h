@@ -1186,7 +1186,7 @@ namespace SIMD {
             return *this;
         }
         // GATHERV
-        inline SIMDVec_i & gather(int32_t* baseAddr, SIMDVec_i const & indices) {
+        inline SIMDVec_i & gather(int32_t const * baseAddr, SIMDVec_i const & indices) {
             alignas(16) int32_t rawInd[4];
             alignas(16) int32_t raw[4];
 
