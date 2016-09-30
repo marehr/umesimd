@@ -24,7 +24,7 @@
 //
 //
 //  This piece of code was developed as part of ICE-DIP project at CERN.
-//  "ICE-DIP is a European Industrial Doctorate project funded by the European Community's 
+//  "ICE-DIP is a European Industrial Doctorate project funded by the European Community's
 //  7th Framework programme Marie Curie Actions under grant PITN-GA-2012-316596".
 //
 
@@ -115,8 +115,8 @@ namespace SIMD {
         // ambiguity between SET-CONSTR and LOAD-CONSTR.
         template<typename T>
         UME_FORCE_INLINE SIMDVec_i(
-            T i, 
-            typename std::enable_if< std::is_same<T, int>::value && 
+            T i,
+            typename std::enable_if< std::is_same<T, int>::value &&
                                     !std::is_same<T, int64_t>::value,
                                     void*>::type = nullptr)
         : SIMDVec_i(static_cast<int64_t>(i)) {}
@@ -1532,7 +1532,7 @@ namespace SIMD {
             return *this;
         }
         // GATHERV
-        UME_FORCE_INLINE SIMDVec_i & gather(int64_t * baseAddr, SIMDVec_u<uint64_t, 8> const & indices) {
+        UME_FORCE_INLINE SIMDVec_i & gather(int64_t const * baseAddr, SIMDVec_u<uint64_t, 8> const & indices) {
             mVec = _mm512_i64gather_epi64(indices.mVec, (__int64 const*)baseAddr, 8);
             return *this;
         }

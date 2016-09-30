@@ -24,7 +24,7 @@
 //
 //
 //  This piece of code was developed as part of ICE-DIP project at CERN.
-//  "ICE-DIP is a European Industrial Doctorate project funded by the European Community's 
+//  "ICE-DIP is a European Industrial Doctorate project funded by the European Community's
 //  7th Framework programme Marie Curie Actions under grant PITN-GA-2012-316596".
 //
 
@@ -80,8 +80,8 @@ namespace SIMD {
         // ambiguity between SET-CONSTR and LOAD-CONSTR.
         template<typename T>
         UME_FORCE_INLINE SIMDVec_i(
-            T i, 
-            typename std::enable_if< std::is_same<T, int>::value && 
+            T i,
+            typename std::enable_if< std::is_same<T, int>::value &&
                                     !std::is_same<T, int32_t>::value,
                                     void*>::type = nullptr)
         : SIMDVec_i(static_cast<int32_t>(i)) {}
@@ -255,7 +255,7 @@ namespace SIMD {
             mVec = _mm512_mask_add_epi32(mVec, mask.mMask, mVec, b.mVec);
             return *this;
         }
-        // ADDSA 
+        // ADDSA
         UME_FORCE_INLINE SIMDVec_i & adda(int32_t b) {
             __m512i t0 = _mm512_set1_epi32(b);
             mVec = _mm512_add_epi32(mVec, t0);
@@ -834,24 +834,24 @@ namespace SIMD {
         UME_FORCE_INLINE int32_t hmax() const {
             uint32_t retval = _mm512_reduce_max_epi32(mVec);
             return retval;
-        }       
+        }
         // MHMAX
         UME_FORCE_INLINE int32_t hmax(SIMDVecMask<16> const & mask) const {
             uint32_t retval = _mm512_mask_reduce_max_epi32(mask.mMask, mVec);
             return retval;
-        }       
+        }
         // IMAX
         // MIMAX
         // HMIN
         UME_FORCE_INLINE int32_t hmin() const {
             uint32_t retval = _mm512_reduce_min_epi32(mVec);
             return retval;
-        }       
+        }
         // MHMIN
         UME_FORCE_INLINE int32_t hmin(SIMDVecMask<16> const & mask) const {
             uint32_t retval = _mm512_mask_reduce_min_epi32(mask.mMask, mVec);
             return retval;
-        }       
+        }
         // IMIN
         // MIMIN
 
@@ -1187,7 +1187,7 @@ namespace SIMD {
             return *this;
         }
         // GATHERV
-        UME_FORCE_INLINE SIMDVec_i & gather(int32_t* baseAddr, SIMDVec_i const & indices) {
+        UME_FORCE_INLINE SIMDVec_i & gather(int32_t const * baseAddr, SIMDVec_i const & indices) {
             mVec = _mm512_i32gather_epi32(indices.mVec, baseAddr, 4);
             return *this;
         }

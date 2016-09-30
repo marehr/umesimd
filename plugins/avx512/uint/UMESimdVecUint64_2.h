@@ -24,7 +24,7 @@
 //
 //
 //  This piece of code was developed as part of ICE-DIP project at CERN.
-//  "ICE-DIP is a European Industrial Doctorate project funded by the European Community's 
+//  "ICE-DIP is a European Industrial Doctorate project funded by the European Community's
 //  7th Framework programme Marie Curie Actions under grant PITN-GA-2012-316596".
 //
 
@@ -102,8 +102,8 @@ namespace SIMD {
         // ambiguity between SET-CONSTR and LOAD-CONSTR.
         template<typename T>
         UME_FORCE_INLINE SIMDVec_u(
-            T i, 
-            typename std::enable_if< std::is_same<T, int>::value && 
+            T i,
+            typename std::enable_if< std::is_same<T, int>::value &&
                                     !std::is_same<T, uint64_t>::value,
                                     void*>::type = nullptr)
         : SIMDVec_u(static_cast<uint64_t>(i)) {}
@@ -838,7 +838,7 @@ namespace SIMD {
             __mmask8 m0 = _mm_cmpeq_epu64_mask(mVec, SET1_EPI64(b));
 #else
             __mmask8 m0 = _mm512_cmpeq_epu64_mask(
-                            _mm512_castsi128_si512(mVec), 
+                            _mm512_castsi128_si512(mVec),
                             _mm512_set1_epi64(b));
 #endif
             SIMDVecMask<2> ret_mask;
@@ -854,7 +854,7 @@ namespace SIMD {
             __mmask8 m0 = _mm_cmpneq_epu64_mask(mVec, b.mVec);
 #else
             __mmask8 m0 = _mm512_cmpneq_epu64_mask(
-                            _mm512_castsi128_si512(mVec), 
+                            _mm512_castsi128_si512(mVec),
                             _mm512_castsi128_si512(b.mVec));
 #endif
             SIMDVecMask<2> ret_mask;
@@ -1693,7 +1693,7 @@ namespace SIMD {
             return *this;
         }
         // GATHERV
-        UME_FORCE_INLINE SIMDVec_u & gather(uint64_t * baseAddr, SIMDVec_u const & indices) {
+        UME_FORCE_INLINE SIMDVec_u & gather(uint64_t const * baseAddr, SIMDVec_u const & indices) {
             mVec = _mm_i64gather_epi64((__int64 const*)baseAddr, indices.mVec, 8);
             return *this;
         }
