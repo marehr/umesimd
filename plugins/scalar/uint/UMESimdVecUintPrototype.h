@@ -24,7 +24,7 @@
 //
 //
 //  This piece of code was developed as part of ICE-DIP project at CERN.
-//  "ICE-DIP is a European Industrial Doctorate project funded by the European Community's
+//  "ICE-DIP is a European Industrial Doctorate project funded by the European Community's 
 //  7th Framework programme Marie Curie Actions under grant PITN-GA-2012-316596".
 //
 
@@ -345,10 +345,10 @@ namespace SIMD {
 
     // ***************************************************************************
     // *
-    // *    Implementation of unsigned integer SIMDx_8u, SIMDx_16u, SIMDx_32u,
+    // *    Implementation of unsigned integer SIMDx_8u, SIMDx_16u, SIMDx_32u, 
     // *    and SIMDx_64u.
     // *
-    // *    This implementation uses scalar emulation available through to
+    // *    This implementation uses scalar emulation available through to 
     // *    SIMDVecUnsignedInterface.
     // *
     // ***************************************************************************
@@ -361,7 +361,7 @@ namespace SIMD {
             typename SIMDVec_u_traits<SCALAR_UINT_TYPE, VEC_LEN>::MASK_TYPE,
             typename SIMDVec_u_traits<SCALAR_UINT_TYPE, VEC_LEN>::SWIZZLE_MASK_TYPE>,
         public SIMDVecPackableInterface<
-            SIMDVec_u<SCALAR_UINT_TYPE, VEC_LEN>,
+            SIMDVec_u<SCALAR_UINT_TYPE, VEC_LEN>,        
             typename SIMDVec_u_traits<SCALAR_UINT_TYPE, VEC_LEN>::HALF_LEN_VEC_TYPE>
     {
     public:
@@ -391,8 +391,8 @@ namespace SIMD {
         // ambiguity between SET-CONSTR and LOAD-CONSTR.
         template<typename T>
         UME_FORCE_INLINE SIMDVec_u(
-            T i,
-            typename std::enable_if< std::is_same<T, int>::value &&
+            T i, 
+            typename std::enable_if< std::is_same<T, int>::value && 
                                     !std::is_same<T, SCALAR_UINT_TYPE>::value,
                                     void*>::type = nullptr)
         : SIMDVec_u(static_cast<SCALAR_UINT_TYPE>(i)) {}
@@ -465,7 +465,7 @@ namespace SIMD {
             mVec.insert(56, i56);  mVec.insert(57, i57);  mVec.insert(58, i58);  mVec.insert(59, i59);
             mVec.insert(60, i60);  mVec.insert(61, i61);  mVec.insert(62, i62);  mVec.insert(63, i63);
         }
-
+        
         UME_FORCE_INLINE SIMDVec_u(
             SCALAR_UINT_TYPE i0,   SCALAR_UINT_TYPE i1,   SCALAR_UINT_TYPE i2,   SCALAR_UINT_TYPE i3,   SCALAR_UINT_TYPE i4,   SCALAR_UINT_TYPE i5,   SCALAR_UINT_TYPE i6,   SCALAR_UINT_TYPE i7,
             SCALAR_UINT_TYPE i8,   SCALAR_UINT_TYPE i9,   SCALAR_UINT_TYPE i10,  SCALAR_UINT_TYPE i11,  SCALAR_UINT_TYPE i12,  SCALAR_UINT_TYPE i13,  SCALAR_UINT_TYPE i14,  SCALAR_UINT_TYPE i15,
@@ -517,7 +517,7 @@ namespace SIMD {
             mVec.insert(120, i120);  mVec.insert(121, i121);  mVec.insert(122, i122);  mVec.insert(123, i123);
             mVec.insert(124, i124);  mVec.insert(125, i125);  mVec.insert(126, i126);  mVec.insert(127, i127);
         }
-
+        
         // EXTRACT
         UME_FORCE_INLINE SCALAR_UINT_TYPE extract(uint32_t index) const {
             return mVec[index];
@@ -570,7 +570,7 @@ namespace SIMD {
 
     // SIMD NullTypes. These are used whenever a terminating
     // scalar type is used as a creator function for SIMD type.
-    // These types cannot be instantiated, but are necessary for
+    // These types cannot be instantiated, but are necessary for 
     // typeset to be consistent.
     template<>
     class SIMDVec_u<NullType<1>, 1>
