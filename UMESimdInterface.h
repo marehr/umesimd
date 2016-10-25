@@ -696,12 +696,12 @@ namespace SIMD
             mVecRef_RW.insert(mIndexRef, mVecRef_RW[mIndexRef] >> scalarRhs);
         }
 
-        UME_FORCE_INLINE operator SCALAR_TYPE() { return mVecRef_RW.extract(mIndexRef); }
+        UME_FORCE_INLINE operator SCALAR_TYPE() const { return mVecRef_RW.extract(mIndexRef); }
 
         // Comparison operators accept any type of scalar to allow mixing 
         // scalar types.
         template<typename T>
-        UME_FORCE_INLINE bool operator==(T const & rhs) { 
+        UME_FORCE_INLINE bool operator==(T const & rhs) const {
             return mVecRef_RW.extract(mIndexRef) == rhs;
         }
         UME_FORCE_INLINE bool operator== (IntermediateIndex const & x) {
