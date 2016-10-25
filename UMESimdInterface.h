@@ -651,7 +651,7 @@ namespace SIMD
             mVecRef_RW.insert(mIndexRef, mVecRef_RW[mIndexRef] >> scalarRhs);
         }
 
-        UME_FORCE_INLINE operator SCALAR_TYPE() { return mVecRef_RW.extract(mIndexRef); }
+        UME_FORCE_INLINE operator SCALAR_TYPE() const { return mVecRef_RW.extract(mIndexRef); }
 
         // Comparison operators accept any type of scalar to allow mixing 
         // scalar types.
@@ -660,7 +660,7 @@ namespace SIMD
             typename = typename std::enable_if<std::is_fundamental<T>::value, void*>::type
             >
         UME_FORCE_INLINE bool operator==(
-                T const & rhs) {
+                T const & rhs) const {
             return mVecRef_RW.extract(mIndexRef) == SCALAR_TYPE(rhs);
         }
         UME_FORCE_INLINE bool operator== (IntermediateIndex const & x) {
