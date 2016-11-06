@@ -1885,7 +1885,7 @@ namespace SIMD {
             return *this;
         }
         // GATHERV
-        UME_FORCE_INLINE SIMDVec_i & gather(int32_t * baseAddr, SIMDVec_i const & indices) {
+        UME_FORCE_INLINE SIMDVec_i & gather(const int32_t * baseAddr, SIMDVec_i const & indices) {
             mVec[0] = baseAddr[indices.mVec[0]];
             mVec[1] = baseAddr[indices.mVec[1]];
             mVec[2] = baseAddr[indices.mVec[2]];
