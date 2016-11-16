@@ -663,95 +663,95 @@ namespace SIMD
                 T const & rhs) const {
             return mVecRef_RW.extract(mIndexRef) == SCALAR_TYPE(rhs);
         }
-        UME_FORCE_INLINE bool operator== (IntermediateIndex const & x) {
+        UME_FORCE_INLINE bool operator== (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) ==
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE bool operator!=(T const & rhs) {
+        UME_FORCE_INLINE bool operator!=(T const & rhs) const {
             return mVecRef_RW.extract(mIndexRef) != rhs;
         }
-        UME_FORCE_INLINE bool operator!= (IntermediateIndex const & x) {
+        UME_FORCE_INLINE bool operator!= (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) !=
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator+ (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator+ (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) + SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator+ (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator+ (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) +
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator- (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator- (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) - SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator- (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator- (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) -
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator* (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator* (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) * SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator* (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator* (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) *
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator/ (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator/ (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) / SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator/ (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator/ (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) /
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator% (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator% (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) % SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator% (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator% (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) %
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator& (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator& (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) & SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator& (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator& (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) &
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator| (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator| (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) | SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator| (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator| (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) |
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator^ (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator^ (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) ^ SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator^ (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator^ (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) ^
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator<< (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator<< (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) << SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator<< (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator<< (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) <<
                 x.mVecRef_RW.extract(mIndexRef);
         }
         template<typename T>
-        UME_FORCE_INLINE SCALAR_TYPE operator>> (T const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator>> (T const & x) const {
             return mVecRef_RW.extract(mIndexRef) >> SCALAR_TYPE(x);
         }
-        UME_FORCE_INLINE SCALAR_TYPE operator>> (IntermediateIndex const & x) {
+        UME_FORCE_INLINE SCALAR_TYPE operator>> (IntermediateIndex const & x) const {
             return mVecRef_RW.extract(mIndexRef) >>
                 x.mVecRef_RW.extract(mIndexRef);
         }
